@@ -1,8 +1,10 @@
 ```
-npm install
-npm run dev
+pnpm i
+pnpm dev
 ```
 
+环境变量配置
+
 ```
-open http://localhost:3000
+DATABASE_URL=
 ```
