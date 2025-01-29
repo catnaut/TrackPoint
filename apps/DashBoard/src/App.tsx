@@ -1,5 +1,5 @@
 import { Layout } from 'antd'
-
+import SiderMenu from './container/Menu'
 const { Header, Content, Footer, Sider } = Layout
 
 const headerStyle: React.CSSProperties = {
@@ -24,6 +24,7 @@ const siderStyle: React.CSSProperties = {
   color: '#fff',
   backgroundColor: '#001529',
   height: '100vh',
+  overflow: 'auto',
 };
 
 const footerStyle: React.CSSProperties = {
@@ -49,7 +50,7 @@ function App() {
         breakpoint="lg"
         collapsedWidth="0"
       >
-        Sider
+        <SiderMenu />
       </Sider>
       <Layout>
         <Header style={headerStyle}>Header</Header>
