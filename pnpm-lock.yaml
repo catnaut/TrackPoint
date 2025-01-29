@@ -60,6 +60,9 @@ importers:
       antd:
         specifier: ^5.23.3
         version: 5.23.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      better-auth:
+        specifier: ^1.1.15
+        version: 1.1.15
     devDependencies:
       '@tanstack/router-devtools':
         specifier: 1.97.8
@@ -67,6 +70,9 @@ importers:
       '@tanstack/router-plugin':
         specifier: 1.97.8
         version: 1.97.8(@tanstack/react-router@1.97.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(vite@6.0.11(@types/node@20.17.16)(tsx@4.19.2))
+      '@types/node':
+        specifier: ^20.11.17
+        version: 20.17.16
 
   apps/Server:
     dependencies:

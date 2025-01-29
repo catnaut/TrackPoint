@@ -12,10 +12,12 @@
   "dependencies": {
     "@ant-design/icons": "^5.6.0",
     "@tanstack/react-router": "1.97.8",
-    "antd": "^5.23.3"
+    "antd": "^5.23.3",
+    "better-auth": "^1.1.15"
   },
   "devDependencies": {
     "@tanstack/router-devtools": "1.97.8",
-    "@tanstack/router-plugin": "1.97.8"
+    "@tanstack/router-plugin": "1.97.8",
+    "@types/node": "^20.11.17"
   }
 }
