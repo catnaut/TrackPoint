@@ -2,88 +2,54 @@ import React from 'react';
 import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
+import { Link } from '@tanstack/react-router';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
 const items: MenuItem[] = [
   {
-    key: 'sub1',
-    label: '数据看板',
+    key: 'dashboard',
+    label: <Link to="/">数据看板</Link>,
     icon: <MailOutlined />,
     children: [
-      {
-        key: 'g1',
-        label: 'Item 1',
-        type: 'group',
-        children: [
-          { key: '1', label: 'Option 1' },
-          { key: '2', label: 'Option 2' },
-        ],
-      },
-      {
-        key: 'g2',
-        label: 'Item 2',
-        type: 'group',
-        children: [
-          { key: '3', label: 'Option 3' },
-          { key: '4', label: 'Option 4' },
-        ],
-      },
+      { key: 'dashboard-list', label: <Link to="/dashboard">看板列表</Link> },
+      { key: 'dashboard-editor', label: <Link to="/dashboardEditor">看板编辑器</Link> },
     ],
   },
   {
-    key: 'sub2',
+    key: 'event',
     label: '埋点管理',
     icon: <AppstoreOutlined />,
     children: [
-      { key: '5', label: 'Option 5' },
-      { key: '6', label: 'Option 6' },
-      {
-        key: 'sub3',
-        label: 'Submenu',
-        children: [
-          { key: '7', label: 'Option 7' },
-          { key: '8', label: 'Option 8' },
-        ],
-      },
+      { key: 'event-list', label: <Link to="/eventList">事件列表</Link> },
+      { key: 'event-editor', label: <Link to="/eventEditor">事件编辑</Link> },
     ],
   },
   {
-    type: 'divider',
-  },
-  {
-    key: 'sub4',
+    key: 'query',
     label: '数据查询',
     icon: <SettingOutlined />,
     children: [
-      { key: '9', label: 'Option 9' },
-      { key: '10', label: 'Option 10' },
-      { key: '11', label: 'Option 11' },
-      { key: '12', label: 'Option 12' },
+      { key: 'query-list', label: <Link to="/queryList">条件查询</Link> },
+      //{ key: 'query-editor', label: <Link to="/queryEditor">条件编辑</Link> },
     ],
   },
   {
-    key: 'sub5',
+    key: 'system',
     label: '系统设置',
     icon: <SettingOutlined />,
     children: [
-      { key: '9', label: 'Option 9' },
-      { key: '10', label: 'Option 10' },
-      { key: '11', label: 'Option 11' },
-      { key: '12', label: 'Option 12' },
+      { key: 'user-list', label: <Link to="/userList">用户管理</Link> },
+      { key: 'permission-list', label: <Link to="/permissionList">权限管理</Link> },
+      { key: 'system', label: <Link to="/system">系统参数</Link> },
     ],
   },
 ];
 
 const SiderMenu: React.FC = () => {
-  const onClick: MenuProps['onClick'] = (e) => {
-    console.log('click ', e);
-  };
-
   return (
     <Menu
-      onClick={onClick}
-      style={{ 
+      style={{
         width: '100%',
         height: '100%',
         borderRight: 'none'
