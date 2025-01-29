@@ -1,12 +1,4 @@
-import {
-  sqliteTable,
-  AnySQLiteColumn,
-  text,
-  integer,
-  numeric,
-  foreignKey,
-} from "drizzle-orm/sqlite-core";
-import { sql } from "drizzle-orm";
+import { sqliteTable, text, integer, numeric } from "drizzle-orm/sqlite-core";
 
 export const user = sqliteTable("user", {
   id: text().primaryKey().notNull(),
