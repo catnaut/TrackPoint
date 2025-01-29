@@ -1,34 +1,62 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Layout } from 'antd'
+
+const { Header, Content, Footer, Sider } = Layout
+
+const headerStyle: React.CSSProperties = {
+  textAlign: 'center',
+  color: '#fff',
+  height: 64,
+  paddingInline: 24,
+  lineHeight: '64px',
+  backgroundColor: '#001529',
+};
+
+const contentStyle: React.CSSProperties = {
+  padding: 24,
+  minHeight: 'calc(100vh - 128px)',
+  backgroundColor: '#fff',
+  color: '#000',
+  flex: 1,
+};
+
+const siderStyle: React.CSSProperties = {
+  textAlign: 'center',
+  color: '#fff',
+  backgroundColor: '#001529',
+  height: '100vh',
+};
+
+const footerStyle: React.CSSProperties = {
+  textAlign: 'center',
+  color: '#999',
+  height: 64,
+  padding: '24px 50px',
+  backgroundColor: '#f0f2f5',
+};
+
+const containerStyle: React.CSSProperties = {
+  minHeight: '100vh',
+  margin: 0,
+  padding: 0,
+};
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <Layout style={containerStyle}>
+      <Sider 
+        width={200} 
+        style={siderStyle}
+        breakpoint="lg"
+        collapsedWidth="0"
+      >
+        Sider
+      </Sider>
+      <Layout>
+        <Header style={headerStyle}>Header</Header>
+        <Content style={contentStyle}>Content</Content>
+        <Footer style={footerStyle}>Footer</Footer>
+      </Layout>
+    </Layout>
   )
 }
 
