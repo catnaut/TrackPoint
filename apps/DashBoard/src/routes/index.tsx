@@ -1,33 +1,80 @@
-import { createRouter, createRootRoute, createRoute } from '@tanstack/react-router'
+import { createRouter, createRoute } from '@tanstack/react-router'
 import { rootRoute } from './__root'
-import { DashBoard } from '../pages/DashBoard'
-import { Setting } from '../pages/Setting'
-import { User } from '../pages/User'
+import DashBoard from '../pages/DashBoard/DashBoard'
+import DashBoardEditor from '../pages/DashBoard/DashBoardEditor'
+import EventList from '../pages/Event/EventList'
+import EventEditor from '../pages/Event/EventEditor'
+import QueryList from '../pages/Query/QueryList'
+import UserList from '../pages/System/UserList'
+import PermissionList from '../pages/System/PermissionList'
+import System from '../pages/System/System'
 
-// 创建子路由
+//创建子路由
 const indexRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/',
   component: DashBoard,
 })
 
-const settingRoute = createRoute({
+const dashboardRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/setting',
-  component: Setting,
+  path: '/dashboard',
+  component: DashBoard,
 })
 
-const userRoute = createRoute({
+const dashboardEditRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/user',
-  component: User,
+  path: '/dashboardEditor',
+  component: DashBoardEditor,
+})
+
+const eventListRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/eventList',
+  component: EventList,
+})
+
+const eventEditorRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/eventEditor',
+  component: EventEditor,
+})
+
+const queryListRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/queryList',
+  component: QueryList,
+})
+
+const userListRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/userList',
+  component: UserList,
+})
+
+const permissionListRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/permissionList',
+  component: PermissionList,
+})
+
+const systemRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/system',
+  component: System,
 })
 
 // 注册路由
 const routeTree = rootRoute.addChildren([
   indexRoute,
-  settingRoute,
-  userRoute,
+  dashboardRoute,
+  dashboardEditRoute,
+  eventListRoute,
+  eventEditorRoute,
+  queryListRoute,
+  userListRoute,
+  permissionListRoute,
+  systemRoute,
 ])
 
 // 创建路由实例
