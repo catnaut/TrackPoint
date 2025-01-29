@@ -1,4 +1,4 @@
-import { createRootRoute, Outlet } from '@tanstack/react-router'
+import { createRootRoute, Outlet, createRoute } from '@tanstack/react-router'
 import { Layout } from 'antd'
 import SiderMenu from '../container/Menu'
 
@@ -43,21 +43,30 @@ const containerStyle: React.CSSProperties = {
   padding: 0,
 };
 
-export const rootRoute = createRootRoute({
-  component: () => (
-    <Layout style={containerStyle}>
-      <Sider
-        width={200}
-        style={siderStyle}
-        breakpoint="lg"
-        collapsedWidth="0"
-      >
-        <SiderMenu />
-      </Sider>
-      <Layout>
-        <Header style={headerStyle}>Header</Header>
-        <Content style={contentStyle}><Outlet /></Content>
-      </Layout>
+const MainLayout = () => (
+  <Layout style={containerStyle}>
+    <Sider
+      width={200}
+      style={siderStyle}
+      breakpoint="lg"
+      collapsedWidth="0"
+    >
+      <SiderMenu />
+    </Sider>
+    <Layout>
+      <Header style={headerStyle}>Header</Header>
+      <Content style={contentStyle}><Outlet /></Content>
     </Layout>
-  ),
+  </Layout>
+)
+
+export const rootRoute = createRootRoute({
+  component: () => <Outlet />,
+})
+
+// 创建主布局路由
+export const mainLayoutRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  id: 'main',
+  component: MainLayout,
 })
