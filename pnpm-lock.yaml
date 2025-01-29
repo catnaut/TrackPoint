@@ -51,6 +51,9 @@ importers:
 
   apps/DashBoard:
     dependencies:
+      '@ant-design/icons':
+        specifier: ^5.6.0
+        version: 5.6.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       antd:
         specifier: ^5.23.3
         version: 5.23.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
