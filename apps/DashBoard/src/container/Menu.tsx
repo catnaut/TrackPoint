@@ -52,12 +52,13 @@ const SiderMenu: React.FC = () => {
       style={{
         width: '100%',
         height: '100%',
-        borderRight: 'none'
+        borderRight: 'none',
+        backgroundColor: '#EEEFE9',
       }}
       defaultSelectedKeys={['1']}
       defaultOpenKeys={['sub1']}
       mode="inline"
-      theme="dark"
+      //theme="dark"
       items={items}
     />
   );
