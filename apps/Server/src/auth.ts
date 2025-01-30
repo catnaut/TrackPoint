@@ -26,15 +26,18 @@ export const createAuth: (c: Context) => ReturnType<typeof betterAuth> = (
 };
 
 // for better-auth cli
-export const auth = betterAuth({
-  database: drizzleAdapter(drizzle(""), {
-    provider: "pg",
-  }),
-  socialProviders: {
-    github: {
-      clientId: "123",
-      clientSecret: "123",
-    },
-  },
-  plugins: [] as BetterAuthPlugin[],
-});
+export const auth =
+  process.env.BETTER_AUTH_CLI === "true"
+    ? betterAuth({
+        database: drizzleAdapter(drizzle.mock(), {
+          provider: "pg",
+        }),
+        socialProviders: {
+          github: {
+            clientId: "123",
+            clientSecret: "123",
+          },
+        },
+        plugins: [] as BetterAuthPlugin[],
+      })
+    : null;

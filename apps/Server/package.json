@@ -4,8 +4,11 @@
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "generate": "drizzle-kit generate",
+    "generate:auth": "cross-env BETTER_AUTH_CLI=true npx @better-auth/cli generate --config ./src/auth.ts --output ./src/db/schema/auth.ts",
     "studio": "drizzle-kit studio",
-    "migrate": "drizzle-kit migrate"
+    "migrate": "drizzle-kit migrate",
+    "build": "pkgroll --minify  --env.BETTER_AUTH_CLI=false",
+    "start": "node dist/index.mjs"
   },
   "dependencies": {
     "@hono/node-server": "^1.13.7",
@@ -16,8 +19,12 @@
     "hono": "^4.6.19"
   },
   "devDependencies": {
+    "@better-auth/cli": "^1.1.15",
     "@types/node": "^20.11.17",
+    "cross-env": "^7.0.3",
     "drizzle-kit": "^0.30.3",
+    "pkgroll": "^2.6.1",
     "tsx": "^4.19.2"
-  }
+  },
+  "exports": "./dist/index.mjs"
 }

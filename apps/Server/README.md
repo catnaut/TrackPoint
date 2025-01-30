@@ -1,6 +1,8 @@
 ```
 pnpm i
 pnpm dev
+pnpm build
+pnpm start
 ```
 
 环境变量配置
