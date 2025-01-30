@@ -8,7 +8,11 @@ pnpm start
 环境变量配置
 
 ```
+# Neon 数据库
 DATABASE_URL=
+# 认证密钥
+AUTH_SECRET=
+# Github OAuth
 GITHUB_CLIENT_ID=
 GITHUB_CLIENT_SECRET=
 ```
@@ -22,3 +26,5 @@ pnpm migrate # 迁移数据库
 ```
 npx @better-auth/cli generate --output ./src/db/schema/auth.ts
 ```
+
+暂时不支持生产部署，可以用 `pnpm start` 模拟生产环境

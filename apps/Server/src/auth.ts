@@ -14,6 +14,7 @@ export const createAuth: (c: Context) => ReturnType<typeof betterAuth> = (
   }
 
   return betterAuth({
+    secret: c.env.AUTH_SECRET,
     database: drizzleAdapter(db, { provider: "pg" }),
     socialProviders: {
       github: {

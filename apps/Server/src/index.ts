@@ -1,5 +1,7 @@
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
+import { handle } from "@hono/node-server/vercel";
+
 import { createMiddleware } from "hono/factory";
 import { createAuth } from "@/auth.js";
 import { createDB } from "@/db/index.js";
@@ -47,10 +49,12 @@ app.on(["GET", "POST"], "/api/auth/*", (c) =>
 );
 app.use("/api/*", protectedRoute);
 
-const port = 3000;
-console.log(`Server is running on http://localhost:${port}`);
+// const port = 3000;
+// console.log(`Server is running on http://localhost:${port}`);
 
-serve({
-  fetch: app.fetch,
-  port,
-});
+// serve({
+//   fetch: app.fetch,
+//   port,
+// });
+
+export default handle(app);
