@@ -9,5 +9,15 @@ export const rootRoute = createRootRoute({
 export const mainLayoutRoute = createRoute({
   getParentRoute: () => rootRoute,
   id: 'main',
+  beforeLoad: async () => {
+    // 模拟登录成功
+    const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
+    if (!isAuthenticated) {
+      throw new Error('Unauthorized');
+    }
+  },
+  onError: () => {
+    window.location.href = '/login';
+  },
   component: MainLayout,
 })

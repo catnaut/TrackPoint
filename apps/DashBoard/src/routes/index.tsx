@@ -22,7 +22,8 @@ const indexRoute = createRoute({
   getParentRoute: () => mainLayoutRoute,
   path: '/',
   beforeLoad: async () => {
-    const isAuthenticated = false;
+    //const isAuthenticated = false;
+    const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
     if (!isAuthenticated) {
       throw router.navigate({ to: '/login' })
     }
