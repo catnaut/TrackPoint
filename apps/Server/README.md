@@ -7,6 +7,8 @@ pnpm dev
 
 ```
 DATABASE_URL=
+GITHUB_CLIENT_ID=
+GITHUB_CLIENT_SECRET=
 ```
 
 更新了 better-auth 配置后使用命令重新生成 schema ，平常不需要使用
