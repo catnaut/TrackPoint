@@ -7,16 +7,16 @@ const { Header, Sider, Content } = Layout
 const headerStyle: React.CSSProperties = {
   textAlign: 'center',
   color: '#fff',
-  height: 64,
+  height: 50,
   paddingInline: 24,
-  lineHeight: '64px',
-  backgroundColor: '#001529',
+  lineHeight: '60px',
+  backgroundColor: '#E7E9E2',
 };
 
 const contentStyle: React.CSSProperties = {
   padding: 24,
   minHeight: 'calc(100vh - 128px)',
-  backgroundColor: '#fff',
+  backgroundColor: '#F3F4EF',
   color: '#000',
   flex: 1,
 };
@@ -24,7 +24,7 @@ const contentStyle: React.CSSProperties = {
 const siderStyle: React.CSSProperties = {
   textAlign: 'center',
   color: '#fff',
-  backgroundColor: '#001529',
+  backgroundColor: '#EEEFE9',
   height: '100vh',
   overflow: 'auto',
 };
